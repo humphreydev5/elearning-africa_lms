@@ -4,9 +4,10 @@ import { NextResponse } from "next/server";
 
 import { db } from "@/lib/db";
 
+
 const { Video } = new Mux(
-  process.env.MUX_TOKEN_ID!,
-  process.env.MUX_TOKEN_SECRET!,
+  process.env.MUX_TOKEN_ID,
+  process.env.MUX_TOKEN_SECRET,
 );
 
 export async function DELETE(

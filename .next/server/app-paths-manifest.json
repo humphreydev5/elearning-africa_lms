@@ -1,1 +1,8 @@
-{}
+{
+  "/(dashboard)/(routes)/(root)/page": "app/(dashboard)/(routes)/(root)/page.js",
+  "/(auth)/(routes)/sign-in/[[...sign-in]]/page": "app/(auth)/(routes)/sign-in/[[...sign-in]]/page.js",
+  "/(dashboard)/(routes)/search/page": "app/(dashboard)/(routes)/search/page.js",
+  "/(dashboard)/(routes)/teacher/courses/page": "app/(dashboard)/(routes)/teacher/courses/page.js",
+  "/(dashboard)/(routes)/teacher/analytics/page": "app/(dashboard)/(routes)/teacher/analytics/page.js",
+  "/(dashboard)/(routes)/teacher/courses/[courseId]/page": "app/(dashboard)/(routes)/teacher/courses/[courseId]/page.js"
+}
