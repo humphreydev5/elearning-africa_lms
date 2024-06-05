@@ -11,6 +11,7 @@ import {
   CommandGroup,
   CommandInput,
   CommandItem,
+  CommandList,
 } from "@/components/ui/command"
 import {
   Popover,
@@ -50,6 +51,7 @@ export const Combobox = ({
         <Command>
           <CommandInput placeholder="Search option..." />
           <CommandEmpty>No option found.</CommandEmpty>
+          <CommandList>
           <CommandGroup>
             {options?.map((option) => (
               <CommandItem
@@ -69,6 +71,8 @@ export const Combobox = ({
               </CommandItem>
             ))}
           </CommandGroup>
+          </CommandList>
+
         </Command>
       </PopoverContent>
     </Popover>

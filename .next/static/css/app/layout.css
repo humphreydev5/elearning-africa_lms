@@ -1912,6 +1912,10 @@ video {
   color: hsl(var(--accent-foreground));
 }
 
+  .data-\[disabled\=\'true\'\]\:pointer-events-none[data-disabled='true'] {
+  pointer-events: none;
+}
+
   .data-\[disabled\]\:pointer-events-none[data-disabled] {
   pointer-events: none;
 }
@@ -1938,6 +1942,10 @@ video {
 
   .data-\[state\=open\]\:text-muted-foreground[data-state=open] {
   color: hsl(var(--muted-foreground));
+}
+
+  .data-\[disabled\=\'true\'\]\:opacity-50[data-disabled='true'] {
+  opacity: 0.5;
 }
 
   .data-\[disabled\]\:opacity-50[data-disabled] {

@@ -1,9 +1,10 @@
 {
   "pages": {
-    "/(dashboard)/(routes)/teacher/courses/[courseId]/page": [
+    "/(dashboard)/(routes)/teacher/courses/[courseId]/chapters/[chapterId]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(dashboard)/(routes)/teacher/courses/[courseId]/page.js"
+      "static/css/app/(dashboard)/(routes)/teacher/courses/[courseId]/chapters/[chapterId]/page.css",
+      "static/chunks/app/(dashboard)/(routes)/teacher/courses/[courseId]/chapters/[chapterId]/page.js"
     ],
     "/(dashboard)/(routes)/teacher/layout": [
       "static/chunks/webpack.js",
@@ -21,20 +22,20 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/(dashboard)/(routes)/(root)/page": [
+    "/(dashboard)/(routes)/teacher/courses/[courseId]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(dashboard)/(routes)/(root)/page.js"
+      "static/chunks/app/(dashboard)/(routes)/teacher/courses/[courseId]/page.js"
     ],
     "/(dashboard)/(routes)/teacher/courses/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(dashboard)/(routes)/teacher/courses/page.js"
     ],
-    "/(dashboard)/(routes)/teacher/create/page": [
+    "/(dashboard)/(routes)/(root)/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(dashboard)/(routes)/teacher/create/page.js"
+      "static/chunks/app/(dashboard)/(routes)/(root)/page.js"
     ]
   }
 }
