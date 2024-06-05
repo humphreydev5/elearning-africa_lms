@@ -2,5 +2,6 @@
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/(dashboard)/(routes)/(root)/page": "app/(dashboard)/(routes)/(root)/page.js",
   "/(dashboard)/(routes)/teacher/courses/page": "app/(dashboard)/(routes)/teacher/courses/page.js",
+  "/(dashboard)/(routes)/teacher/create/page": "app/(dashboard)/(routes)/teacher/create/page.js",
   "/(dashboard)/(routes)/teacher/courses/[courseId]/page": "app/(dashboard)/(routes)/teacher/courses/[courseId]/page.js"
 }

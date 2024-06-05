@@ -38,7 +38,7 @@ export const CategoryForm = ({
   options,
 }: CategoryFormProps) => {
   const [isEditing, setIsEditing] = useState(false);
-
+ console.log(options, "options");
   const toggleEdit = () => setIsEditing((current) => !current);
 
   const router = useRouter();

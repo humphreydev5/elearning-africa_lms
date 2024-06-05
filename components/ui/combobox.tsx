@@ -41,7 +41,7 @@ export const Combobox = ({
           className="w-full justify-between"
         >
           {value
-            ? options.find((option) => option.value === value)?.label
+            ? options?.find((option) => option?.value === value)?.label
             : "Select option..."}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
@@ -51,21 +51,21 @@ export const Combobox = ({
           <CommandInput placeholder="Search option..." />
           <CommandEmpty>No option found.</CommandEmpty>
           <CommandGroup>
-            {options.map((option) => (
+            {options?.map((option) => (
               <CommandItem
-                key={option.value}
+                key={option?.value}
                 onSelect={() => {
-                  onChange(option.value === value ? "" : option.value)
+                  onChange(option?.value === value ? "" : option?.value)
                   setOpen(false)
                 }}
               >
                 <Check
                   className={cn(
                     "mr-2 h-4 w-4",
-                    value === option.value ? "opacity-100" : "opacity-0"
+                    value === option?.value ? "opacity-100" : "opacity-0"
                   )}
                 />
-                {option.label}
+                {option?.label}
               </CommandItem>
             ))}
           </CommandGroup>
