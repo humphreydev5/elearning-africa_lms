@@ -1,4 +1,4 @@
-"use client";
+// use client
 
 import axios from "axios";
 import { Trash } from "lucide-react";
@@ -14,17 +14,20 @@ interface ActionsProps {
   disabled: boolean;
   courseId: string;
   isPublished: boolean;
-};
+}
 
-export const Actions = ({
-  disabled,
-  courseId,
-  isPublished
-}: ActionsProps) => {
+/**
+ * Component handling actions for course management, such as publishing/unpublishing
+ * and deleting a course.
+ */
+export const Actions = ({ disabled, courseId, isPublished }: ActionsProps) => {
   const router = useRouter();
   const confetti = useConfettiStore();
   const [isLoading, setIsLoading] = useState(false);
 
+  /**
+   * Handles the click event for publishing/unpublishing a course.
+   */
   const onClick = async () => {
     try {
       setIsLoading(true);
@@ -44,8 +47,11 @@ export const Actions = ({
     } finally {
       setIsLoading(false);
     }
-  }
-  
+  };
+
+  /**
+   * Handles the click event for deleting a course.
+   */
   const onDelete = async () => {
     try {
       setIsLoading(true);
@@ -60,7 +66,7 @@ export const Actions = ({
     } finally {
       setIsLoading(false);
     }
-  }
+  };
 
   return (
     <div className="flex items-center gap-x-2">
@@ -78,5 +84,5 @@ export const Actions = ({
         </Button>
       </ConfirmModal>
     </div>
-  )
-}
+  );
+};

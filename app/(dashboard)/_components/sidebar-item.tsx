@@ -1,34 +1,41 @@
+// Indicate that this file is a client-side module
 "use client";
 
+// Import necessary modules and types
 import { LucideIcon } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
-
 import { cn } from "@/lib/utils";
 
+// Define the interface for the SidebarItem component's props
 interface SidebarItemProps {
   icon: LucideIcon;
   label: string;
   href: string;
-};
+}
 
+// Define the SidebarItem component
 export const SidebarItem = ({
-  icon: Icon,
+  icon: Icon, // Rename the 'icon' prop to 'Icon' for use within the component
   label,
   href,
 }: SidebarItemProps) => {
+  // Get the current pathname and router instance from Next.js navigation hooks
   const pathname = usePathname();
   const router = useRouter();
 
+  // Determine if the current route is active
   const isActive =
-    (pathname === "/" && href === "/") ||
-    pathname === href ||
-    pathname?.startsWith(`${href}/`);
+    (pathname === "/" && href === "/") || // Check if the current path and href are both the root
+    pathname === href || // Check if the current path matches the href
+    pathname?.startsWith(`${href}/`); // Check if the current path starts with the href
 
+  // Handle the click event to navigate to the specified href
   const onClick = () => {
     router.push(href);
   }
 
   return (
+    // Render a button element with dynamic classes based on the active state
     <button
       onClick={onClick}
       type="button"

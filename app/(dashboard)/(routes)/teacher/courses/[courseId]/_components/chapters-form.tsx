@@ -26,22 +26,27 @@ import { ChaptersList } from "./chapters-list";
 interface ChaptersFormProps {
   initialData: Course & { chapters: Chapter[] };
   courseId: string;
-};
+}
 
 const formSchema = z.object({
   title: z.string().min(1),
 });
 
-export const ChaptersForm = ({
-  initialData,
-  courseId
-}: ChaptersFormProps) => {
+/**
+ * Component for managing course chapters, allowing users to create, edit, and reorder chapters.
+ */
+
+export const ChaptersForm = ({ initialData, courseId }: ChaptersFormProps) => {
   const [isCreating, setIsCreating] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
 
+  /**
+   * Toggles the creating state for adding a new chapter.
+   */
+
   const toggleCreating = () => {
     setIsCreating((current) => !current);
-  }
+  };
 
   const router = useRouter();
 
@@ -54,6 +59,11 @@ export const ChaptersForm = ({
 
   const { isSubmitting, isValid } = form.formState;
 
+  /**
+   * Handles form submission for creating a new chapter.
+   * @param values - The form values containing the new chapter's title.
+   */
+
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       await axios.post(`/api/courses/${courseId}/chapters`, values);
@@ -63,14 +73,19 @@ export const ChaptersForm = ({
     } catch {
       toast.error("Something went wrong");
     }
-  }
+  };
+
+  /**
+   * Handles chapter reordering.
+   * @param updateData - The updated order of chapters.
+   */
 
   const onReorder = async (updateData: { id: string; position: number }[]) => {
     try {
       setIsUpdating(true);
 
       await axios.put(`/api/courses/${courseId}/chapters/reorder`, {
-        list: updateData
+        list: updateData,
       });
       toast.success("Chapters reordered");
       router.refresh();
@@ -79,11 +94,16 @@ export const ChaptersForm = ({
     } finally {
       setIsUpdating(false);
     }
-  }
+  };
+
+  /**
+   * Redirects to the editing page for a specific chapter.
+   * @param id - The ID of the chapter to edit.
+   */
 
   const onEdit = (id: string) => {
     router.push(`/teacher/courses/${courseId}/chapters/${id}`);
-  }
+  };
 
   return (
     <div className="relative mt-6 border bg-slate-100 rounded-md p-4">
@@ -127,20 +147,19 @@ export const ChaptersForm = ({
                 </FormItem>
               )}
             />
-            <Button
-              disabled={!isValid || isSubmitting}
-              type="submit"
-            >
+            <Button disabled={!isValid || isSubmitting} type="submit">
               Create
             </Button>
           </form>
         </Form>
       )}
       {!isCreating && (
-        <div className={cn(
-          "text-sm mt-2",
-          !initialData.chapters.length && "text-slate-500 italic"
-        )}>
+        <div
+          className={cn(
+            "text-sm mt-2",
+            !initialData.chapters.length && "text-slate-500 italic"
+          )}
+        >
           {!initialData.chapters.length && "No chapters"}
           <ChaptersList
             onEdit={onEdit}
@@ -155,5 +174,5 @@ export const ChaptersForm = ({
         </p>
       )}
     </div>
-  )
-}
+  );
+};

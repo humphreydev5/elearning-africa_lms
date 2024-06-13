@@ -23,6 +23,9 @@ const formSchema = z.object({
   videoUrl: z.string().min(1),
 });
 
+/**
+ * Component for handling chapter video upload and display.
+ */
 export const ChapterVideoForm = ({
   initialData,
   courseId,
@@ -30,10 +33,17 @@ export const ChapterVideoForm = ({
 }: ChapterVideoFormProps) => {
   const [isEditing, setIsEditing] = useState(false);
 
+  /**
+   * Toggles the edit mode.
+   */
   const toggleEdit = () => setIsEditing((current) => !current);
 
   const router = useRouter();
 
+  /**
+   * Handles form submission.
+   * @param values Form values
+   */
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       await axios.patch(`/api/courses/${courseId}/chapters/${chapterId}`, values);
@@ -91,7 +101,7 @@ export const ChapterVideoForm = ({
             }}
           />
           <div className="text-xs text-muted-foreground mt-4">
-           Upload this chapter&apos;s video
+           Upload this chapter's video
           </div>
         </div>
       )}

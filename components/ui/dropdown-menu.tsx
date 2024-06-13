@@ -6,17 +6,44 @@ import { Check, ChevronRight, Circle } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * Dropdown menu component.
+ */
+
 const DropdownMenu = DropdownMenuPrimitive.Root
+
+/**
+ * Dropdown menu trigger component.
+ */
 
 const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger
 
+/**
+ * Dropdown menu group component.
+ */
+
 const DropdownMenuGroup = DropdownMenuPrimitive.Group
+
+/**
+ * Dropdown menu portal component.
+ */
 
 const DropdownMenuPortal = DropdownMenuPrimitive.Portal
 
+/**
+ * Dropdown menu sub-component.
+ */
 const DropdownMenuSub = DropdownMenuPrimitive.Sub
 
+/**
+ * Dropdown menu radio group component.
+ */
+
 const DropdownMenuRadioGroup = DropdownMenuPrimitive.RadioGroup
+
+/**
+ * Dropdown menu sub trigger component.
+ */
 
 const DropdownMenuSubTrigger = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.SubTrigger>,
@@ -39,6 +66,10 @@ const DropdownMenuSubTrigger = React.forwardRef<
 ))
 DropdownMenuSubTrigger.displayName =
   DropdownMenuPrimitive.SubTrigger.displayName
+
+/**
+ * Dropdown menu sub content component.
+ */
 
 const DropdownMenuSubContent = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.SubContent>,
@@ -74,6 +105,10 @@ const DropdownMenuContent = React.forwardRef<
 ))
 DropdownMenuContent.displayName = DropdownMenuPrimitive.Content.displayName
 
+/**
+ * Dropdown menu item component.
+ */
+
 const DropdownMenuItem = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item> & {
@@ -92,6 +127,9 @@ const DropdownMenuItem = React.forwardRef<
 ))
 DropdownMenuItem.displayName = DropdownMenuPrimitive.Item.displayName
 
+/**
+ * Dropdown menu checkbox item component.
+ */
 const DropdownMenuCheckboxItem = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.CheckboxItem>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.CheckboxItem>

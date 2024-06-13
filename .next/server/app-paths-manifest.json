@@ -1,4 +1,5 @@
 {
-  "/api/courses/[courseId]/chapters/[chapterId]/publish/route": "app/api/courses/[courseId]/chapters/[chapterId]/publish/route.js",
-  "/(dashboard)/(routes)/teacher/courses/[courseId]/chapters/[chapterId]/page": "app/(dashboard)/(routes)/teacher/courses/[courseId]/chapters/[chapterId]/page.js"
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/(auth)/(routes)/sign-in/[[...sign-in]]/page": "app/(auth)/(routes)/sign-in/[[...sign-in]]/page.js",
+  "/(dashboard)/(routes)/(root)/page": "app/(dashboard)/(routes)/(root)/page.js"
 }

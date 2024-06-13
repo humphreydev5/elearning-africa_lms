@@ -1,26 +1,30 @@
 {
   "pages": {
-    "/(dashboard)/(routes)/teacher/courses/[courseId]/chapters/[chapterId]/page": [
+    "/(auth)/(routes)/sign-in/[[...sign-in]]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/(dashboard)/(routes)/teacher/courses/[courseId]/chapters/[chapterId]/page.css",
-      "static/chunks/app/(dashboard)/(routes)/teacher/courses/[courseId]/chapters/[chapterId]/page.js"
+      "static/chunks/app/(auth)/(routes)/sign-in/[[...sign-in]]/page.js"
     ],
-    "/(dashboard)/(routes)/teacher/layout": [
+    "/(auth)/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(dashboard)/(routes)/teacher/layout.js"
-    ],
-    "/(dashboard)/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(dashboard)/layout.js"
+      "static/chunks/app/(auth)/layout.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
+    ],
+    "/(dashboard)/(routes)/(root)/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(dashboard)/(routes)/(root)/page.js"
+    ],
+    "/(dashboard)/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(dashboard)/layout.js"
     ]
   }
 }

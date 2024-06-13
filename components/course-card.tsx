@@ -6,16 +6,22 @@ import { IconBadge } from "@/components/icon-badge";
 import { formatPrice } from "@/lib/format";
 import { CourseProgress } from "@/components/course-progress";
 
+/**
+ * Props interface for the CourseCard component.
+ */
 interface CourseCardProps {
-  id: string;
-  title: string;
-  imageUrl: string;
-  chaptersLength: number;
-  price: number;
-  progress: number | null;
-  category: string;
+  id: string; // Course ID
+  title: string; // Course title
+  imageUrl: string; // Course image URL
+  chaptersLength: number; // Number of chapters in the course
+  price: number; // Course price
+  progress: number | null; // Course progress
+  category: string; // Course category
 };
 
+/**
+ * Component for rendering a course card.
+ */
 export const CourseCard = ({
   id,
   title,

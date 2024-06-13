@@ -8,6 +8,10 @@ import { Search } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Dialog, DialogContent } from "@/components/ui/dialog"
 
+/**
+ * Command component.
+ */
+
 const Command = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive>
@@ -23,6 +27,9 @@ const Command = React.forwardRef<
 ))
 Command.displayName = CommandPrimitive.displayName
 
+/**
+ * Command dialog component.
+ */
 interface CommandDialogProps extends DialogProps {}
 
 const CommandDialog = ({ children, ...props }: CommandDialogProps) => {
@@ -36,6 +43,10 @@ const CommandDialog = ({ children, ...props }: CommandDialogProps) => {
     </Dialog>
   )
 }
+
+/**
+ * Command input component.
+ */
 
 const CommandInput = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Input>,
@@ -54,6 +65,10 @@ const CommandInput = React.forwardRef<
   </div>
 ))
 
+/**
+ * Command list component.
+ */
+
 CommandInput.displayName = CommandPrimitive.Input.displayName
 
 const CommandList = React.forwardRef<
@@ -68,6 +83,10 @@ const CommandList = React.forwardRef<
 ))
 
 CommandList.displayName = CommandPrimitive.List.displayName
+
+/**
+ * Command empty component.
+ */
 
 const CommandEmpty = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Empty>,
@@ -98,6 +117,9 @@ const CommandGroup = React.forwardRef<
 
 CommandGroup.displayName = CommandPrimitive.Group.displayName
 
+/**
+ * Command separator component.
+ */
 const CommandSeparator = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Separator>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Separator>
@@ -110,6 +132,9 @@ const CommandSeparator = React.forwardRef<
 ))
 CommandSeparator.displayName = CommandPrimitive.Separator.displayName
 
+/**
+ * Command item component.
+ */
 const CommandItem = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Item>
@@ -125,6 +150,10 @@ const CommandItem = React.forwardRef<
 ))
 
 CommandItem.displayName = CommandPrimitive.Item.displayName
+
+/**
+ * Command shortcut component.
+ */
 
 const CommandShortcut = ({
   className,

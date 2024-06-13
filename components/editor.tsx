@@ -1,15 +1,19 @@
-"use client";
-
 import dynamic from "next/dynamic";
 import { useMemo } from "react";
 
 import "react-quill/dist/quill.snow.css";
 
+/**
+ * Props interface for the Editor component.
+ */
 interface EditorProps {
-  onChange: (value: string) => void;
-  value: string;
+  onChange: (value: string) => void; // Callback function triggered on editor content change
+  value: string; // Current value of the editor content
 };
 
+/**
+ * Component for rendering a rich text editor.
+ */
 export const Editor = ({
   onChange,
   value,

@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 
 import { Course } from "@prisma/client"
 import { ColumnDef } from "@tanstack/react-table"
@@ -15,6 +15,9 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
+/**
+ * Columns configuration for displaying course data in a table.
+ */
 export const columns: ColumnDef<Course>[] = [
   {
     accessorKey: "title",

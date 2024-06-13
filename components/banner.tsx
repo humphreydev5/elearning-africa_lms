@@ -3,6 +3,9 @@ import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
 
+/**
+ * Variant definitions for the Banner component.
+ */
 const bannerVariants = cva(
   "border text-center p-4 text-sm flex items-center w-full",
   {
@@ -18,19 +21,27 @@ const bannerVariants = cva(
   }
 );
 
+/**
+ * Props interface for the Banner component.
+ */
 interface BannerProps extends VariantProps<typeof bannerVariants> {
-  label: string;
+  label: string; // Banner label text
 };
 
-const iconMap = {
-  warning: AlertTriangle,
-  success: CheckCircleIcon,
-};
-
+/**
+ * Component for rendering a banner with a label and an icon.
+ */
 export const Banner = ({
   label,
   variant,
 }: BannerProps) => {
+  // Map of icons corresponding to different variants
+  const iconMap = {
+    warning: AlertTriangle,
+    success: CheckCircleIcon,
+  };
+
+  // Determine the icon based on the variant, default to warning if not specified
   const Icon = iconMap[variant || "warning"];
 
   return  (

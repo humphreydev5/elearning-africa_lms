@@ -2,9 +2,15 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * Props interface for the Textarea component.
+ */
 export interface TextareaProps
   extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
 
+/**
+ * Component for rendering a textarea input field.
+ */
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ className, ...props }, ref) => {
     return (
@@ -19,6 +25,9 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
     )
   }
 )
+
+// Assigning a display name for the Textarea component
 Textarea.displayName = "Textarea"
 
+// Exporting the Textarea component
 export { Textarea }

@@ -8,8 +8,11 @@ import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { Input } from "@/components/ui/input";
 import { useDebounce } from "@/hooks/use-debounce";
 
+/**
+ * Component for the search input field.
+ */
 export const SearchInput = () => {
-  const [value, setValue] = useState("")
+  const [value, setValue] = useState("");
   const debouncedValue = useDebounce(value);
 
   const searchParams = useSearchParams();
@@ -19,22 +22,23 @@ export const SearchInput = () => {
   const currentCategoryId = searchParams.get("categoryId");
 
   useEffect(() => {
-    const url = qs.stringifyUrl({
-      url: pathname,
-      query: {
-        categoryId: currentCategoryId,
-        title: debouncedValue,
-      }
-    }, { skipEmptyString: true, skipNull: true });
+    const url = qs.stringifyUrl(
+      {
+        url: pathname,
+        query: {
+          categoryId: currentCategoryId,
+          title: debouncedValue,
+        },
+      },
+      { skipEmptyString: true, skipNull: true }
+    );
 
     router.push(url);
-  }, [debouncedValue, currentCategoryId, router, pathname])
+  }, [debouncedValue, currentCategoryId, router, pathname]);
 
   return (
     <div className="relative">
-      <Search
-        className="h-4 w-4 absolute top-3 left-3 text-slate-600"
-      />
+      <Search className="h-4 w-4 absolute top-3 left-3 text-slate-600" />
       <Input
         onChange={(e) => setValue(e.target.value)}
         value={value}
@@ -42,5 +46,5 @@ export const SearchInput = () => {
         placeholder="Search for a course"
       />
     </div>
-  )
-}
+  );
+};

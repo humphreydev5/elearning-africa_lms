@@ -1,4 +1,4 @@
-"use client";
+// use client
 
 import * as z from "zod";
 import axios from "axios";
@@ -31,12 +31,19 @@ const formSchema = z.object({
   price: z.coerce.number(),
 });
 
+/**
+ * Component for managing the price of a course.
+ * Users can edit the price of the course.
+ */
 export const PriceForm = ({
   initialData,
   courseId
 }: PriceFormProps) => {
   const [isEditing, setIsEditing] = useState(false);
 
+  /**
+   * Toggles the editing mode for the price.
+   */
   const toggleEdit = () => setIsEditing((current) => !current);
 
   const router = useRouter();
@@ -50,6 +57,10 @@ export const PriceForm = ({
 
   const { isSubmitting, isValid } = form.formState;
 
+  /**
+   * Submits the updated price to the server.
+   * @param values - The form values containing the updated price.
+   */
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       await axios.patch(`/api/courses/${courseId}`, values);

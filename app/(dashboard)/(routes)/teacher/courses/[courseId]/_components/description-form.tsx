@@ -1,4 +1,4 @@
-"use client";
+// use client
 
 import * as z from "zod";
 import axios from "axios";
@@ -32,12 +32,19 @@ const formSchema = z.object({
   }),
 });
 
+/**
+ * Component for editing the description of a course.
+ * Users can toggle between viewing and editing the description.
+ */
 export const DescriptionForm = ({
   initialData,
   courseId
 }: DescriptionFormProps) => {
   const [isEditing, setIsEditing] = useState(false);
 
+  /**
+   * Toggles the editing mode for the description.
+   */
   const toggleEdit = () => setIsEditing((current) => !current);
 
   const router = useRouter();
@@ -51,6 +58,10 @@ export const DescriptionForm = ({
 
   const { isSubmitting, isValid } = form.formState;
 
+  /**
+   * Submits the updated description to the server.
+   * @param values - The form values containing the updated description.
+   */
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       await axios.patch(`/api/courses/${courseId}`, values);

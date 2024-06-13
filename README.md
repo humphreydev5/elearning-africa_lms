@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# E-Learning Africa
 
-## Getting Started
+## Introduction
+E-Learning Africa is a learning management system designed to provide accessible, quality education to students and teachers across Africa.
 
-First, run the development server:
+**Deployed Site**: https://elearning-africa.vercel.app
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+**Final Project Blog Article**: https://bit.ly/3KKVVwx
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Author LinkedIn**: https://www.linkedin.com/in/humphreydev/
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Installation
+To install and run this project locally, follow these steps:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/humphreydev5/elearning-africa.git
+    ```
 
-## Learn More
+2. Navigate to the project directory:
+    ```bash
+    cd elearning-africa
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+3. Install dependencies:
+    ```bash
+    npm install
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. Start the development server:
+    ```bash
+    npm run dev
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Usage
+1. Open your browser and navigate to `http://localhost:3000`
+2. Browse courses, enroll, and enjoy learning!
 
-## Deploy on Vercel
+## Contributing
+Contributions are welcome! 
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Related Projects
+- https://moodle.com/solutions/lms/
+- https://360learning.com/blog/what-are-learning-management-systems-lms
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## License
+This project is licensed under the MIT License
+
+
+## Inspiration
+Growing up in Africa, I witnessed firsthand the educational challenges faced by many students and teachers. This project is my contribution towards bridging that gap.
+
+## Technical Details
+The E-Learning Africa platform uses the following technologies:
+- **Next.js**: For server-side rendering and efficient page loads.
+- **Prisma**: For managing the MySQL database through Planetscale.
+- **Stripe**: For secure payment processing.
+- **Clerk**: For user authentication and management.
+
+### Key Features
+1. **Browse & Filter Courses**: Easily find courses using filters.
+2. **Purchase Courses using Stripe**: Secure and seamless payment integration.
+3. **Teacher Mode**: Instructors can manage courses and track student progress.
+
+### Most Difficult Technical Challenge
+Integrating video processing using Mux was particularly challenging. I had to optimize video encoding parameters and server configurations to improve processing time and playback quality.
+
+### Learnings
+- **Technical**: Optimized video processing and efficient API integration.
+- **Personal Growth**: Learned the importance of resilience and collaboration.
+- **Future Path**: Committed to developing more educational technology solutions.
+
+## About Me
+I am a full stack developer with a passion for creating impactful educational technology. Connect with me to discuss more about this project or potential collaborations.
+
+- **GitHub**: https://github.com/humphreydev5/elearning-africa_lms
+- **Deployed Project**: https://elearning-africa.vercel.app
+- **Project Landing Page**: https://calm-platypus-7afbb2.netlify.app/ 
+- **LinkedIn**: https://www.linkedin.com/in/humphreydev/

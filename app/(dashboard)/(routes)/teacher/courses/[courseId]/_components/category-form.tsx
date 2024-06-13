@@ -25,8 +25,12 @@ import { Combobox } from "@/components/ui/combobox";
 interface CategoryFormProps {
   initialData: Course;
   courseId: string;
-  options: { label: string; value: string; }[];
-};
+  options: { label: string; value: string }[];
+}
+
+/**
+ * Component for managing course category, allowing users to edit the category of a course.
+ */
 
 const formSchema = z.object({
   categoryId: z.string().min(1),
@@ -38,7 +42,7 @@ export const CategoryForm = ({
   options,
 }: CategoryFormProps) => {
   const [isEditing, setIsEditing] = useState(false);
- console.log(options, "options");
+  console.log(options, "options");
   const toggleEdit = () => setIsEditing((current) => !current);
 
   const router = useRouter();
@@ -46,11 +50,16 @@ export const CategoryForm = ({
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      categoryId: initialData?.categoryId || ""
+      categoryId: initialData?.categoryId || "",
     },
   });
 
   const { isSubmitting, isValid } = form.formState;
+
+  /**
+   * Handles form submission for updating the category of a course.
+   * @param values - The form values containing the updated category ID.
+   */
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
@@ -61,9 +70,11 @@ export const CategoryForm = ({
     } catch {
       toast.error("Something went wrong");
     }
-  }
+  };
 
-  const selectedOption = options.find((option) => option.value === initialData.categoryId);
+  const selectedOption = options.find(
+    (option) => option.value === initialData.categoryId
+  );
 
   return (
     <div className="mt-6 border bg-slate-100 rounded-md p-4">
@@ -81,10 +92,12 @@ export const CategoryForm = ({
         </Button>
       </div>
       {!isEditing && (
-        <p className={cn(
-          "text-sm mt-2",
-          !initialData.categoryId && "text-slate-500 italic"
-        )}>
+        <p
+          className={cn(
+            "text-sm mt-2",
+            !initialData.categoryId && "text-slate-500 italic"
+          )}
+        >
           {selectedOption?.label || "No category"}
         </p>
       )}
@@ -107,10 +120,7 @@ export const CategoryForm = ({
               )}
             />
             <div className="flex items-center gap-x-2">
-              <Button
-                disabled={!isValid || isSubmitting}
-                type="submit"
-              >
+              <Button disabled={!isValid || isSubmitting} type="submit">
                 Save
               </Button>
             </div>
@@ -118,5 +128,5 @@ export const CategoryForm = ({
         </Form>
       )}
     </div>
-  )
-}
+  );
+};

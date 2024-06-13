@@ -2,16 +2,25 @@ import { Category, Course } from "@prisma/client";
 
 import { CourseCard } from "@/components/course-card";
 
+/**
+ * Type definition for a course with progress and category information.
+ */
 type CourseWithProgressWithCategory = Course & {
-  category: Category | null;
-  chapters: { id: string }[];
-  progress: number | null;
+  category: Category | null; // Category associated with the course
+  chapters: { id: string }[]; // Array of chapters in the course
+  progress: number | null; // Progress of the user in the course
 };
 
+/**
+ * Props interface for the CoursesList component.
+ */
 interface CoursesListProps {
-  items: CourseWithProgressWithCategory[];
+  items: CourseWithProgressWithCategory[]; // Array of courses with progress and category information
 }
 
+/**
+ * Component for rendering a list of courses.
+ */
 export const CoursesList = ({
   items
 }: CoursesListProps) => {
@@ -37,5 +46,5 @@ export const CoursesList = ({
         </div>
       )}
     </div>
-  )
+  );
 }

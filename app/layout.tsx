@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "E-Learning Africa",
-  description: "The number and best learning management system in Africa",
+  description: "Best learning management system in Africa",
 };
 
 export default function RootLayout({

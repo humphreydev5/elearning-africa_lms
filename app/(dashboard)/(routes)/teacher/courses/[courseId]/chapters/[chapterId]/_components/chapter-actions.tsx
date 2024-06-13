@@ -1,4 +1,4 @@
-"use client";
+// use client
 
 import axios from "axios";
 import { Trash } from "lucide-react";
@@ -14,26 +14,36 @@ interface ChapterActionsProps {
   courseId: string;
   chapterId: string;
   isPublished: boolean;
-};
+}
 
+/**
+ * Component for handling chapter actions like publishing, unpublishing, and deleting.
+ */
 export const ChapterActions = ({
   disabled,
   courseId,
   chapterId,
-  isPublished
+  isPublished,
 }: ChapterActionsProps) => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
+  /**
+   * Handles click event for publishing or unpublishing chapter.
+   */
   const onClick = async () => {
     try {
       setIsLoading(true);
 
       if (isPublished) {
-        await axios.patch(`/api/courses/${courseId}/chapters/${chapterId}/unpublish`);
+        await axios.patch(
+          `/api/courses/${courseId}/chapters/${chapterId}/unpublish`
+        );
         toast.success("Chapter unpublished");
       } else {
-        await axios.patch(`/api/courses/${courseId}/chapters/${chapterId}/publish`);
+        await axios.patch(
+          `/api/courses/${courseId}/chapters/${chapterId}/publish`
+        );
         toast.success("Chapter published");
       }
 
@@ -43,8 +53,11 @@ export const ChapterActions = ({
     } finally {
       setIsLoading(false);
     }
-  }
-  
+  };
+
+  /**
+   * Handles deletion of the chapter.
+   */
   const onDelete = async () => {
     try {
       setIsLoading(true);
@@ -59,7 +72,7 @@ export const ChapterActions = ({
     } finally {
       setIsLoading(false);
     }
-  }
+  };
 
   return (
     <div className="flex items-center gap-x-2">
@@ -77,5 +90,5 @@ export const ChapterActions = ({
         </Button>
       </ConfirmModal>
     </div>
-  )
-}
+  );
+};

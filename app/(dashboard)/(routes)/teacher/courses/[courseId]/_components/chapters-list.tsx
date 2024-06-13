@@ -17,12 +17,16 @@ interface ChaptersListProps {
   items: Chapter[];
   onReorder: (updateData: { id: string; position: number }[]) => void;
   onEdit: (id: string) => void;
-};
+}
+
+/**
+ * Component to display and manage a list of chapters, allowing users to reorder and edit chapters.
+ */
 
 export const ChaptersList = ({
   items,
   onReorder,
-  onEdit
+  onEdit,
 }: ChaptersListProps) => {
   const [isMounted, setIsMounted] = useState(false);
   const [chapters, setChapters] = useState(items);
@@ -34,6 +38,11 @@ export const ChaptersList = ({
   useEffect(() => {
     setChapters(items);
   }, [items]);
+
+  /**
+   * Handles the end of dragging an item and updates the chapter order.
+   * @param result - The drop result containing information about the dragged item and its destination.
+   */
 
   const onDragEnd = (result: DropResult) => {
     if (!result.destination) return;
@@ -51,11 +60,11 @@ export const ChaptersList = ({
 
     const bulkUpdateData = updatedChapters.map((chapter) => ({
       id: chapter.id,
-      position: items.findIndex((item) => item.id === chapter.id)
+      position: items.findIndex((item) => item.id === chapter.id),
     }));
 
     onReorder(bulkUpdateData);
-  }
+  };
 
   if (!isMounted) {
     return null;
@@ -67,16 +76,17 @@ export const ChaptersList = ({
         {(provided) => (
           <div {...provided.droppableProps} ref={provided.innerRef}>
             {chapters.map((chapter, index) => (
-              <Draggable 
-                key={chapter.id} 
-                draggableId={chapter.id} 
+              <Draggable
+                key={chapter.id}
+                draggableId={chapter.id}
                 index={index}
               >
                 {(provided) => (
                   <div
                     className={cn(
                       "flex items-center gap-x-2 bg-slate-200 border-slate-200 border text-slate-700 rounded-md mb-4 text-sm",
-                      chapter.isPublished && "bg-sky-100 border-sky-200 text-sky-700"
+                      chapter.isPublished &&
+                        "bg-sky-100 border-sky-200 text-sky-700"
                     )}
                     ref={provided.innerRef}
                     {...provided.draggableProps}
@@ -84,21 +94,16 @@ export const ChaptersList = ({
                     <div
                       className={cn(
                         "px-2 py-3 border-r border-r-slate-200 hover:bg-slate-300 rounded-l-md transition",
-                        chapter.isPublished && "border-r-sky-200 hover:bg-sky-200"
+                        chapter.isPublished &&
+                          "border-r-sky-200 hover:bg-sky-200"
                       )}
                       {...provided.dragHandleProps}
                     >
-                      <Grip
-                        className="h-5 w-5"
-                      />
+                      <Grip className="h-5 w-5" />
                     </div>
                     {chapter.title}
                     <div className="ml-auto pr-2 flex items-center gap-x-2">
-                      {chapter.isFree && (
-                        <Badge>
-                          Free
-                        </Badge>
-                      )}
+                      {chapter.isFree && <Badge>Free</Badge>}
                       <Badge
                         className={cn(
                           "bg-slate-500",
@@ -121,5 +126,5 @@ export const ChaptersList = ({
         )}
       </Droppable>
     </DragDropContext>
-  )
-}
+  );
+};

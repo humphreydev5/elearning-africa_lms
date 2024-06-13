@@ -1,4 +1,4 @@
-"use client";
+// use client
 
 import * as z from "zod";
 import axios from "axios";
@@ -23,16 +23,27 @@ const formSchema = z.object({
   }),
 });
 
+/**
+ * Component for managing the image of a course.
+ * Users can add or edit the course image.
+ */
 export const ImageForm = ({
   initialData,
   courseId
 }: ImageFormProps) => {
   const [isEditing, setIsEditing] = useState(false);
 
+  /**
+   * Toggles the editing mode for the image.
+   */
   const toggleEdit = () => setIsEditing((current) => !current);
 
   const router = useRouter();
 
+  /**
+   * Submits the updated image URL to the server.
+   * @param values - The form values containing the updated image URL.
+   */
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       await axios.patch(`/api/courses/${courseId}`, values);

@@ -1,4 +1,4 @@
-"use client";
+// use client
 
 import * as z from "zod";
 import axios from "axios";
@@ -32,12 +32,19 @@ const formSchema = z.object({
   }),
 });
 
+/**
+ * Component for managing the title of a course.
+ * Users can edit the title of the course.
+ */
 export const TitleForm = ({
   initialData,
   courseId
 }: TitleFormProps) => {
   const [isEditing, setIsEditing] = useState(false);
 
+  /**
+   * Toggles the editing mode for the title.
+   */
   const toggleEdit = () => setIsEditing((current) => !current);
 
   const router = useRouter();
@@ -49,6 +56,10 @@ export const TitleForm = ({
 
   const { isSubmitting, isValid } = form.formState;
 
+  /**
+   * Submits the updated title to the server.
+   * @param values - The form values containing the updated title.
+   */
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       await axios.patch(`/api/courses/${courseId}`, values);
